@@ -25,7 +25,7 @@ services:
   # NestJS Backend (Development Mode)
   backend:
     build:
-      context: ./vtr-backend-new
+      context: ./sistemaVentasBackMock
       dockerfile: Dockerfile
     container_name: vtr-backend
     restart: unless-stopped
@@ -47,8 +47,8 @@ services:
       GOOGLE_API_KEY: ${GOOGLE_API_KEY:-AIzaSyALvnr0CouzCRMIUPKc1BM_ngJzcBgSm1I}
       CORS_ORIGIN: "http://localhost:4200"
     volumes:
-      - ./vtr-backend-new/src:/app/src
-      - ./vtr-backend-new/node_modules:/app/node_modules
+      - ./sistemaVentasBackMock/src:/app/src
+      - ./sistemaVentasBackMock/node_modules:/app/node_modules
     depends_on:
       mongodb:
         condition: service_healthy
@@ -58,7 +58,7 @@ services:
   # Angular Frontend (Development Mode)
   frontend:
     build:
-      context: ./web-app-vtr
+      context: ./sistemaVentasFront
       dockerfile: Dockerfile
     container_name: vtr-frontend
     restart: unless-stopped
@@ -67,8 +67,8 @@ services:
     environment:
       NODE_ENV: development
     volumes:
-      - ./web-app-vtr/src:/app/src
-      - ./web-app-vtr/node_modules:/app/node_modules
+      - ./sistemaVentasFront/src:/app/src
+      - ./sistemaVentasFront/node_modules:/app/node_modules
     networks:
       - vtr-network
     depends_on:
