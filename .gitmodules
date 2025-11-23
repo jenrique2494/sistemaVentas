@@ -1,0 +1,6 @@
+[submodule "sistemaVentasBackMock"]
+	path = sistemaVentasBackMock
+	url = https://github.com/jenrique2494/sistemaVentasBackMock.git
+[submodule "sistemaVentasFront"]
+	path = sistemaVentasFront
+	url = https://github.com/jenrique2494/sistemaVentasFront.git
